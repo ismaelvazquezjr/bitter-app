@@ -1,0 +1,6 @@
+.Home {
+    justify-content: space-evenly;
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}

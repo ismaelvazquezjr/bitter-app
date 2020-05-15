@@ -1,0 +1,21 @@
+.Banner {
+    align-items: center;
+    /* background-color: #34B3F7; */
+    background: url("../media/Bitter-Banner.jpg") center center no-repeat;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 50px;
+    width: 100%;
+}
+
+.Banner p {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.Banner p .fal {
+    margin-right: 25px;
+    font-size: 2rem;
+}

@@ -1,0 +1,19 @@
+.LoginModal-modal-button {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.LoginModal-link {
+    color: #34B3F7;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.LoginModal-separator {
+    color: #333;
+}
+
+.LoginModal-link:hover {
+    text-decoration: underline;
+}
