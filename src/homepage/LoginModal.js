@@ -1,11 +1,27 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
+import useInputState from '../hooks/useInputState';
+import { LoggedInContext } from '../context/LoggedInContext';
 import './LoginModal.css';
 import './Modal.css';
 import BitterLogo from '../media/bitter-logo.png';
 
 function LoginModal({isShowing, hide}) {
+    const {toggleLoggedInState} = useContext(LoggedInContext);
+    const [email, emailStateChange] = useInputState("");
+    const [password, passwordStateChange] = useInputState("");
+    const history = useHistory();
+
+    const validateUser = function () {
+        // TODO: Send request to endpoint to validate whether credentials were
+        // accepted
+        if (true) {
+            toggleLoggedInState();
+            history.push("/feed");
+        }
+    }
+
     if (isShowing) {
         return (
             <div className="Modal">
@@ -23,15 +39,19 @@ function LoginModal({isShowing, hide}) {
                                 <TextField
                                     autoFocus
                                     label="Email" 
+                                    value={email}
+                                    onChange={emailStateChange}
                                     id="email" 
                                     type="email" 
                                     fullWidth />
                                 <TextField
                                     label="Password" 
+                                    value={password}
+                                    onChange={passwordStateChange}
                                     id="password" 
                                     type="password" 
                                     fullWidth />
-                                <Link to="/feed" className="LoginModal-modal-button"><button className="LoginForm-signup-button">Log in</button></Link>
+                                <button className="LoginModal-modal-button LoginForm-signup-button" onClick={validateUser}>Log in</button>
                                 <div className="LoginModal-extra-links">
                                     <Link to="/" className="LoginModal-link">Forgot password?</Link>
                                     <span className="LoginModal-separator"> · </span>
@@ -43,6 +63,7 @@ function LoginModal({isShowing, hide}) {
                 </div>
             </div>
         );
+        
     }
 
     return null;

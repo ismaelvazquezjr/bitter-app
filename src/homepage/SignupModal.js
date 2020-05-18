@@ -1,6 +1,7 @@
 import React from 'react';
 import './SignupModal.css';
 import './Modal.css';
+import BitterLogo from '../media/bitter-logo.png';
 
 function SignupModal({isShowing, hide}) {
     if (isShowing) {
@@ -14,7 +15,10 @@ function SignupModal({isShowing, hide}) {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <p>Hello, I'm a modal.</p>
+                            <div className="inner-modal-container">
+                                <img className="LoginForm-logo" src={BitterLogo} alt="Bitter App logo."/>
+                                <h2 className="">Create your account</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
